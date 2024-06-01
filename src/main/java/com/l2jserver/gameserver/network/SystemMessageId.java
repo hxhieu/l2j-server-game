@@ -15170,6 +15170,12 @@ public final class SystemMessageId {
 	public static final SystemMessageId YOU_HAVE_S1_MATCHES_REMAINING_THAT_YOU_CAN_PARTECIPATE_IN_THIS_WEEK_S2_CLASSED_S3_NON_CLASSED_S4_TEAM = new SystemMessageId(3261);
 	
 	/**
+	 * ID: 3262<br>
+	 * Message: You can proceed only when the inventory weight is below 80 percent and the quantity is below 90 percent.
+	 */
+	public static final SystemMessageId YOU_CAN_PROCEED_ONLY_WHEN_THE_INVENTORY_WEIGHT_IS_BELOW_80_PERCENT_AND_THE_QUANTITY_IS_BELOW_90_PERCENT = new SystemMessageId(3262);
+	
+	/**
 	 * ID: 3266<br>
 	 * Message: The angel Nevit has blessed you from above. You are imbued with full Vitality as well as a Vitality Replenishing effect. And should you die, you will not lose Exp!
 	 */

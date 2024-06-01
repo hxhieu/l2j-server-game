@@ -23,6 +23,7 @@ import static com.l2jserver.gameserver.model.events.EventType.PLAYER_LEARN_SKILL
 import static com.l2jserver.gameserver.model.events.EventType.PLAYER_LOGIN;
 import static com.l2jserver.gameserver.model.events.EventType.PLAYER_MENU_SELECTED;
 import static com.l2jserver.gameserver.model.events.EventType.PLAYER_SKILL_LEARNED;
+import static com.l2jserver.gameserver.model.events.EventType.PLAYER_QUEST_ACCEPTED;
 import static com.l2jserver.gameserver.model.events.ListenerRegisterType.NPC;
 
 import java.util.ArrayList;
@@ -65,6 +66,7 @@ import com.l2jserver.gameserver.model.events.AbstractScript;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerLearnSkillRequested;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerMenuSelected;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerOneSkillSelected;
+import com.l2jserver.gameserver.model.events.impl.character.player.PlayerQuestAccepted;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerSkillLearned;
 import com.l2jserver.gameserver.model.events.listeners.AbstractEventListener;
 import com.l2jserver.gameserver.model.events.returns.TerminateReturn;
@@ -959,6 +961,14 @@ public class Quest extends AbstractScript implements IIdentifiable {
 	}
 	
 	/**
+	 * On Quest Accepted event.
+	 * @param event the event
+	 */
+	public void onQuestAccepted(PlayerQuestAccepted event) {
+		
+	}
+	
+	/**
 	 * On Learn Skill Requested event.
 	 * @param event the event
 	 */
@@ -1573,6 +1583,14 @@ public class Quest extends AbstractScript implements IIdentifiable {
 	 */
 	public void bindMenuSelected(int... npcIds) {
 		registerConsumer((PlayerMenuSelected event) -> onMenuSelected(event), PLAYER_MENU_SELECTED, NPC, npcIds);
+	}
+	
+	/**
+	 * Binds the NPCs to the Quest Accepted event.
+	 * @param npcIds the IDs of the NPCs
+	 */
+	public void bindQuestAccepted(int... npcIds) {
+		registerConsumer((PlayerQuestAccepted event) -> onQuestAccepted(event), PLAYER_QUEST_ACCEPTED, NPC, npcIds);
 	}
 	
 	/**

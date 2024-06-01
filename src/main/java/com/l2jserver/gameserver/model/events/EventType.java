@@ -69,6 +69,7 @@ import com.l2jserver.gameserver.model.events.impl.character.player.PlayerProfess
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerProfessionChange;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerPvPChanged;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerPvPKill;
+import com.l2jserver.gameserver.model.events.impl.character.player.PlayerQuestAccepted;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerRestore;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerSelect;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerSit;
@@ -232,6 +233,7 @@ public enum EventType {
 	PLAYER_ONE_SKILL_SELECTED(PlayerOneSkillSelected.class, void.class),
 	PLAYER_SKILL_LEARNED(PlayerSkillLearned.class, void.class),
 	PLAYER_MENU_SELECTED(PlayerMenuSelected.class, void.class),
+	PLAYER_QUEST_ACCEPTED(PlayerQuestAccepted.class, void.class),
 	PLAYER_STAND(PlayerSit.class, TerminateReturn.class),
 	PLAYER_SUMMON_SPAWN(PlayerSummonSpawn.class, void.class),
 	PLAYER_SUMMON_TALK(PlayerSummonTalk.class, void.class),
