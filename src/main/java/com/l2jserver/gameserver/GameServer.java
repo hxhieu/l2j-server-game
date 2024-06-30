@@ -450,7 +450,7 @@ public final class GameServer {
 		}
 		
 		LOG.info("Maximum numbers of connected players {}.", server().getMaxOnlineUsers());
-		LOG.info("Server {} (rev-{}) loaded in {} seconds.", ServerNameDAO.getServer(hexId().getServerID()), "d9a957144", MILLISECONDS.toSeconds(System.currentTimeMillis() - serverLoadStart));
+		LOG.info("Server {} (rev-{}) loaded in {} seconds.", ServerNameDAO.getServer(hexId().getServerID()), "06fec1dc8", MILLISECONDS.toSeconds(System.currentTimeMillis() - serverLoadStart));
 	}
 	
 	public static void main(String[] args) throws Exception {
