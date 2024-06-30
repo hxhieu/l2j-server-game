@@ -344,7 +344,7 @@ public final class Formulas {
 			init = ((L2PetInstance) cha).getPetLevelData().getPetRegenHP() * npc().getPetHpRegenMultiplier();
 		} else {
 			// Pretty much nerf everything else, easier for soloing
-			hpRegenMultiplier = 0.5
+			hpRegenMultiplier = 0.5;
 		}
 		
 		return (cha.calcStat(Stats.REGENERATE_HP_RATE, Math.max(1, init), null, null) * hpRegenMultiplier) + hpRegenBonus;
@@ -432,7 +432,7 @@ public final class Formulas {
 			init = ((L2PetInstance) cha).getPetLevelData().getPetRegenMP() * npc().getPetMpRegenMultiplier();
 		} else {
 			// Pretty much nerf everything else, easier for soloing
-			mpRegenMultiplier = 0.5
+			mpRegenMultiplier = 0.5;
 		}
 		
 		return (cha.calcStat(Stats.REGENERATE_MP_RATE, Math.max(1, init), null, null) * mpRegenMultiplier) + mpRegenBonus;
