@@ -268,6 +268,7 @@ public final class Formulas {
 		}
 		
 		if (cha.isPlayer()) {
+			_log.log(Level.INFO, "---------------------------{0}", cha.getName());
 			L2PcInstance player = cha.getActingPlayer();
 			
 			// SevenSigns Festival modifier
@@ -343,7 +344,6 @@ public final class Formulas {
 		} else if (cha.isPet()) {
 			init = ((L2PetInstance) cha).getPetLevelData().getPetRegenHP() * npc().getPetHpRegenMultiplier();
 		} else {
-			_log.log(Level.INFO, "---------------------------{0}", cha.getName());
 			// Pretty much nerf everything else, easier for soloing
 			return 0.5;
 		}
