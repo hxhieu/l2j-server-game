@@ -18,8 +18,6 @@
  */
 package com.l2jserver.gameserver.model;
 
-import static com.l2jserver.gameserver.config.Configuration.general;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
@@ -30,6 +28,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.logging.Logger;
 
 import com.l2jserver.gameserver.ThreadPoolManager;
+import static com.l2jserver.gameserver.config.Configuration.general;
 import com.l2jserver.gameserver.datatables.SpawnTable;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Character;
@@ -222,7 +221,8 @@ public final class L2WorldRegion {
 				if (o instanceof L2Attackable attackable) {
 					c++;
 					// Start HP/MP/CP Regeneration task
-					attackable.getStatus().startHpMpRegeneration();
+					// attackable.getStatus().startHpMpRegeneration();
+					attackable.getStatus().stopHpMpRegeneration();
 				} else if (o instanceof L2Npc npc) {
 					npc.startRandomAnimationTimer();
 				}

@@ -18,8 +18,6 @@
  */
 package com.l2jserver.gameserver.model.actor.status;
 
-import static com.l2jserver.gameserver.config.Configuration.general;
-
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Future;
@@ -28,6 +26,7 @@ import java.util.logging.Logger;
 
 import com.l2jserver.commons.util.Rnd;
 import com.l2jserver.gameserver.ThreadPoolManager;
+import static com.l2jserver.gameserver.config.Configuration.general;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.stats.Formulas;
@@ -201,7 +200,7 @@ public class CharStatus {
 	public final synchronized void stopHpMpRegeneration() {
 		if (_regTask != null) {
 			if (general().debug()) {
-				_log.fine("HP/MP regen stop");
+				_log.log(Level.WARNING, "HP/MP regen stop -> {0}", getActiveChar().getName());
 			}
 			
 			// Stop the HP/MP/CP Regeneration task
