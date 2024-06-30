@@ -18,25 +18,19 @@
  */
 package com.l2jserver.gameserver.model.stats;
 
-import static com.l2jserver.gameserver.config.Configuration.character;
-import static com.l2jserver.gameserver.config.Configuration.customs;
-import static com.l2jserver.gameserver.config.Configuration.general;
-import static com.l2jserver.gameserver.config.Configuration.npc;
-import static com.l2jserver.gameserver.config.Configuration.rates;
-import static com.l2jserver.gameserver.model.stats.Stats.STAT_CON;
-import static com.l2jserver.gameserver.model.stats.Stats.STAT_DEX;
-import static com.l2jserver.gameserver.model.stats.Stats.STAT_INT;
-import static com.l2jserver.gameserver.model.stats.Stats.STAT_MEN;
-import static com.l2jserver.gameserver.model.stats.Stats.STAT_STR;
-import static com.l2jserver.gameserver.model.stats.Stats.STAT_WIT;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.l2jserver.commons.util.Rnd;
 import com.l2jserver.gameserver.SevenSigns;
 import com.l2jserver.gameserver.SevenSignsFestival;
+import static com.l2jserver.gameserver.config.Configuration.character;
+import static com.l2jserver.gameserver.config.Configuration.customs;
+import static com.l2jserver.gameserver.config.Configuration.general;
+import static com.l2jserver.gameserver.config.Configuration.npc;
+import static com.l2jserver.gameserver.config.Configuration.rates;
 import com.l2jserver.gameserver.data.xml.impl.HitConditionBonusData;
 import com.l2jserver.gameserver.data.xml.impl.KarmaData;
 import com.l2jserver.gameserver.enums.DispelCategory;
@@ -69,6 +63,12 @@ import com.l2jserver.gameserver.model.items.type.WeaponType;
 import com.l2jserver.gameserver.model.skills.AttributeType;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
 import com.l2jserver.gameserver.model.skills.Skill;
+import static com.l2jserver.gameserver.model.stats.Stats.STAT_CON;
+import static com.l2jserver.gameserver.model.stats.Stats.STAT_DEX;
+import static com.l2jserver.gameserver.model.stats.Stats.STAT_INT;
+import static com.l2jserver.gameserver.model.stats.Stats.STAT_MEN;
+import static com.l2jserver.gameserver.model.stats.Stats.STAT_STR;
+import static com.l2jserver.gameserver.model.stats.Stats.STAT_WIT;
 import com.l2jserver.gameserver.model.stats.functions.formulas.FuncArmorSet;
 import com.l2jserver.gameserver.model.stats.functions.formulas.FuncAtkAccuracy;
 import com.l2jserver.gameserver.model.stats.functions.formulas.FuncAtkCritical;
@@ -343,8 +343,9 @@ public final class Formulas {
 		} else if (cha.isPet()) {
 			init = ((L2PetInstance) cha).getPetLevelData().getPetRegenHP() * npc().getPetHpRegenMultiplier();
 		} else {
+			_log.log(Level.INFO, "---------------------------{0}", cha.getName());
 			// Pretty much nerf everything else, easier for soloing
-			hpRegenMultiplier = 0.5;
+			return 0.5;
 		}
 		
 		return (cha.calcStat(Stats.REGENERATE_HP_RATE, Math.max(1, init), null, null) * hpRegenMultiplier) + hpRegenBonus;
@@ -432,7 +433,7 @@ public final class Formulas {
 			init = ((L2PetInstance) cha).getPetLevelData().getPetRegenMP() * npc().getPetMpRegenMultiplier();
 		} else {
 			// Pretty much nerf everything else, easier for soloing
-			mpRegenMultiplier = 0.5;
+			return 0.5;
 		}
 		
 		return (cha.calcStat(Stats.REGENERATE_MP_RATE, Math.max(1, init), null, null) * mpRegenMultiplier) + mpRegenBonus;
