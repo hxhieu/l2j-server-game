@@ -18,22 +18,13 @@
  */
 package com.l2jserver.gameserver;
 
-import static com.l2jserver.gameserver.config.Configuration.customs;
-import static com.l2jserver.gameserver.config.Configuration.database;
-import static com.l2jserver.gameserver.config.Configuration.general;
-import static com.l2jserver.gameserver.config.Configuration.geodata;
-import static com.l2jserver.gameserver.config.Configuration.hexId;
-import static com.l2jserver.gameserver.config.Configuration.mmo;
-import static com.l2jserver.gameserver.config.Configuration.server;
-import static com.l2jserver.gameserver.config.Configuration.telnet;
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
-
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Calendar;
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import java.util.logging.LogManager;
 
 import org.slf4j.Logger;
@@ -47,6 +38,14 @@ import com.l2jserver.commons.util.IPv4Filter;
 import com.l2jserver.commons.util.Util;
 import com.l2jserver.gameserver.bbs.service.ForumsBBSManager;
 import com.l2jserver.gameserver.cache.HtmCache;
+import static com.l2jserver.gameserver.config.Configuration.customs;
+import static com.l2jserver.gameserver.config.Configuration.database;
+import static com.l2jserver.gameserver.config.Configuration.general;
+import static com.l2jserver.gameserver.config.Configuration.geodata;
+import static com.l2jserver.gameserver.config.Configuration.hexId;
+import static com.l2jserver.gameserver.config.Configuration.mmo;
+import static com.l2jserver.gameserver.config.Configuration.server;
+import static com.l2jserver.gameserver.config.Configuration.telnet;
 import com.l2jserver.gameserver.dao.factory.impl.DAOFactory;
 import com.l2jserver.gameserver.data.json.ExperienceData;
 import com.l2jserver.gameserver.data.sql.impl.AnnouncementsTable;
@@ -451,7 +450,7 @@ public final class GameServer {
 		}
 		
 		LOG.info("Maximum numbers of connected players {}.", server().getMaxOnlineUsers());
-		LOG.info("Server {} loaded in {} seconds.", ServerNameDAO.getServer(hexId().getServerID()), MILLISECONDS.toSeconds(System.currentTimeMillis() - serverLoadStart));
+		LOG.info("Server {} (rev-{}) loaded in {} seconds.", ServerNameDAO.getServer(hexId().getServerID()), "d9a957144", MILLISECONDS.toSeconds(System.currentTimeMillis() - serverLoadStart));
 	}
 	
 	public static void main(String[] args) throws Exception {
