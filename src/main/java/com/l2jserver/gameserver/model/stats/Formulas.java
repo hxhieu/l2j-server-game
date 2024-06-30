@@ -341,6 +341,9 @@ public final class Formulas {
 			init *= cha.getLevelMod() * BaseStats.CON.calcBonus(cha);
 		} else if (cha.isPet()) {
 			init = ((L2PetInstance) cha).getPetLevelData().getPetRegenHP() * npc().getPetHpRegenMultiplier();
+		} else {
+			// Neft everything else
+			hpRegenMultiplier = 0.5;
 		}
 		
 		return (cha.calcStat(Stats.REGENERATE_HP_RATE, Math.max(1, init), null, null) * hpRegenMultiplier) + hpRegenBonus;
@@ -426,6 +429,9 @@ public final class Formulas {
 			init *= cha.getLevelMod() * BaseStats.MEN.calcBonus(cha);
 		} else if (cha.isPet()) {
 			init = ((L2PetInstance) cha).getPetLevelData().getPetRegenMP() * npc().getPetMpRegenMultiplier();
+		} else {
+			// Neft everything else
+			mpRegenMultiplier = 0.5;
 		}
 		
 		return (cha.calcStat(Stats.REGENERATE_MP_RATE, Math.max(1, init), null, null) * mpRegenMultiplier) + mpRegenBonus;

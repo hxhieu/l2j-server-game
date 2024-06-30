@@ -221,8 +221,7 @@ public final class L2WorldRegion {
 				if (o instanceof L2Attackable attackable) {
 					c++;
 					// Start HP/MP/CP Regeneration task
-					// attackable.getStatus().startHpMpRegeneration();
-					attackable.getStatus().stopHpMpRegeneration();
+					attackable.getStatus().startHpMpRegeneration();
 				} else if (o instanceof L2Npc npc) {
 					npc.startRandomAnimationTimer();
 				}
